@@ -1,7 +1,16 @@
 module Lita
   module Handlers
     class J2fCapslocker < Handler
-      # insert handler code here
+      route(
+        /^caps\s+(.+)$/i,
+        :caps,
+        command: true,
+        help: { 'caps <word>' => 'prints uppecased <word>' }
+      )
+
+      def caps(response)
+        response.reply response.match_data.captures.first.upcase
+      end
 
       Lita.register_handler(self)
     end

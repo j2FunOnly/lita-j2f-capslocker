@@ -7,7 +7,7 @@ describe Lita::Handlers::J2fCapslocker, lita_handler: true do
   end
 
   it 'uppercase words when asked' do
-    send_message 'Lita caps test'
+    send_message 'Lita caps    test'
     expect(replies.last).to eq('TEST')
   end
 end
